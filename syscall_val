@@ -1,0 +1,1622 @@
+tracepoint:syscalls:sys_enter_socket
+    int __syscall_nr;
+    int family;
+    int type;
+    int protocol;
+tracepoint:syscalls:sys_enter_socketpair
+    int __syscall_nr;
+    int family;
+    int type;
+    int protocol;
+    int * usockvec;
+tracepoint:syscalls:sys_enter_bind
+    int __syscall_nr;
+    int fd;
+    struct sockaddr * umyaddr;
+    int addrlen;
+tracepoint:syscalls:sys_enter_listen
+    int __syscall_nr;
+    int fd;
+    int backlog;
+tracepoint:syscalls:sys_enter_accept4
+    int __syscall_nr;
+    int fd;
+    struct sockaddr * upeer_sockaddr;
+    int * upeer_addrlen;
+    int flags;
+tracepoint:syscalls:sys_enter_accept
+    int __syscall_nr;
+    int fd;
+    struct sockaddr * upeer_sockaddr;
+    int * upeer_addrlen;
+tracepoint:syscalls:sys_enter_connect
+    int __syscall_nr;
+    int fd;
+    struct sockaddr * uservaddr;
+    int addrlen;
+tracepoint:syscalls:sys_enter_getsockname
+    int __syscall_nr;
+    int fd;
+    struct sockaddr * usockaddr;
+    int * usockaddr_len;
+tracepoint:syscalls:sys_enter_getpeername
+    int __syscall_nr;
+    int fd;
+    struct sockaddr * usockaddr;
+    int * usockaddr_len;
+tracepoint:syscalls:sys_enter_sendto
+    int __syscall_nr;
+    int fd;
+    void * buff;
+    size_t len;
+    unsigned int flags;
+    struct sockaddr * addr;
+    int addr_len;
+tracepoint:syscalls:sys_enter_recvfrom
+    int __syscall_nr;
+    int fd;
+    void * ubuf;
+    size_t size;
+    unsigned int flags;
+    struct sockaddr * addr;
+    int * addr_len;
+tracepoint:syscalls:sys_enter_setsockopt
+    int __syscall_nr;
+    int fd;
+    int level;
+    int optname;
+    char * optval;
+    int optlen;
+tracepoint:syscalls:sys_enter_getsockopt
+    int __syscall_nr;
+    int fd;
+    int level;
+    int optname;
+    char * optval;
+    int * optlen;
+tracepoint:syscalls:sys_enter_shutdown
+    int __syscall_nr;
+    int fd;
+    int how;
+tracepoint:syscalls:sys_enter_sendmsg
+    int __syscall_nr;
+    int fd;
+    struct user_msghdr * msg;
+    unsigned int flags;
+tracepoint:syscalls:sys_enter_sendmmsg
+    int __syscall_nr;
+    int fd;
+    struct mmsghdr * mmsg;
+    unsigned int vlen;
+    unsigned int flags;
+tracepoint:syscalls:sys_enter_recvmsg
+    int __syscall_nr;
+    int fd;
+    struct user_msghdr * msg;
+    unsigned int flags;
+tracepoint:syscalls:sys_enter_recvmmsg
+    int __syscall_nr;
+    int fd;
+    struct mmsghdr * mmsg;
+    unsigned int vlen;
+    unsigned int flags;
+    struct __kernel_timespec * timeout;
+tracepoint:syscalls:sys_enter_getrandom
+    int __syscall_nr;
+    char * buf;
+    size_t count;
+    unsigned int flags;
+tracepoint:syscalls:sys_enter_ioprio_set
+    int __syscall_nr;
+    int which;
+    int who;
+    int ioprio;
+tracepoint:syscalls:sys_enter_ioprio_get
+    int __syscall_nr;
+    int which;
+    int who;
+tracepoint:syscalls:sys_enter_add_key
+    int __syscall_nr;
+    const char * _type;
+    const char * _description;
+    const void * _payload;
+    size_t plen;
+    key_serial_t ringid;
+tracepoint:syscalls:sys_enter_request_key
+    int __syscall_nr;
+    const char * _type;
+    const char * _description;
+    const char * _callout_info;
+    key_serial_t destringid;
+tracepoint:syscalls:sys_enter_keyctl
+    int __syscall_nr;
+    int option;
+    unsigned long arg2;
+    unsigned long arg3;
+    unsigned long arg4;
+    unsigned long arg5;
+tracepoint:syscalls:sys_enter_mq_open
+    int __syscall_nr;
+    const char * u_name;
+    int oflag;
+    umode_t mode;
+    struct mq_attr * u_attr;
+tracepoint:syscalls:sys_enter_mq_unlink
+    int __syscall_nr;
+    const char * u_name;
+tracepoint:syscalls:sys_enter_mq_timedsend
+    int __syscall_nr;
+    mqd_t mqdes;
+    const char * u_msg_ptr;
+    size_t msg_len;
+    unsigned int msg_prio;
+    const struct __kernel_timespec * u_abs_timeout;
+tracepoint:syscalls:sys_enter_mq_timedreceive
+    int __syscall_nr;
+    mqd_t mqdes;
+    char * u_msg_ptr;
+    size_t msg_len;
+    unsigned int * u_msg_prio;
+    const struct __kernel_timespec * u_abs_timeout;
+tracepoint:syscalls:sys_enter_mq_notify
+    int __syscall_nr;
+    mqd_t mqdes;
+    const struct sigevent * u_notification;
+tracepoint:syscalls:sys_enter_mq_getsetattr
+    int __syscall_nr;
+    mqd_t mqdes;
+    const struct mq_attr * u_mqstat;
+    struct mq_attr * u_omqstat;
+tracepoint:syscalls:sys_enter_shmget
+    int __syscall_nr;
+    key_t key;
+    size_t size;
+    int shmflg;
+tracepoint:syscalls:sys_enter_shmctl
+    int __syscall_nr;
+    int shmid;
+    int cmd;
+    struct shmid_ds * buf;
+tracepoint:syscalls:sys_enter_shmat
+    int __syscall_nr;
+    int shmid;
+    char * shmaddr;
+    int shmflg;
+tracepoint:syscalls:sys_enter_shmdt
+    int __syscall_nr;
+    char * shmaddr;
+tracepoint:syscalls:sys_enter_semget
+    int __syscall_nr;
+    key_t key;
+    int nsems;
+    int semflg;
+tracepoint:syscalls:sys_enter_semctl
+    int __syscall_nr;
+    int semid;
+    int semnum;
+    int cmd;
+    unsigned long arg;
+tracepoint:syscalls:sys_enter_semtimedop
+    int __syscall_nr;
+    int semid;
+    struct sembuf * tsops;
+    unsigned int nsops;
+    const struct __kernel_timespec * timeout;
+tracepoint:syscalls:sys_enter_semop
+    int __syscall_nr;
+    int semid;
+    struct sembuf * tsops;
+    unsigned nsops;
+tracepoint:syscalls:sys_enter_msgget
+    int __syscall_nr;
+    key_t key;
+    int msgflg;
+tracepoint:syscalls:sys_enter_msgctl
+    int __syscall_nr;
+    int msqid;
+    int cmd;
+    struct msqid_ds * buf;
+tracepoint:syscalls:sys_enter_msgsnd
+    int __syscall_nr;
+    int msqid;
+    struct msgbuf * msgp;
+    size_t msgsz;
+    int msgflg;
+tracepoint:syscalls:sys_enter_msgrcv
+    int __syscall_nr;
+    int msqid;
+    struct msgbuf * msgp;
+    size_t msgsz;
+    long msgtyp;
+    int msgflg;
+tracepoint:syscalls:sys_enter_lookup_dcookie
+    int __syscall_nr;
+    u64 cookie64;
+    char * buf;
+    size_t len;
+tracepoint:syscalls:sys_enter_quotactl
+    int __syscall_nr;
+    unsigned int cmd;
+    const char * special;
+    qid_t id;
+    void * addr;
+tracepoint:syscalls:sys_enter_name_to_handle_at
+    int __syscall_nr;
+    int dfd;
+    const char * name;
+    struct file_handle * handle;
+    int * mnt_id;
+    int flag;
+tracepoint:syscalls:sys_enter_open_by_handle_at
+    int __syscall_nr;
+    int mountdirfd;
+    struct file_handle * handle;
+    int flags;
+tracepoint:syscalls:sys_enter_flock
+    int __syscall_nr;
+    unsigned int fd;
+    unsigned int cmd;
+tracepoint:syscalls:sys_enter_io_uring_enter
+    int __syscall_nr;
+    unsigned int fd;
+    u32 to_submit;
+    u32 min_complete;
+    u32 flags;
+    const void * argp;
+    size_t argsz;
+tracepoint:syscalls:sys_enter_io_uring_setup
+    int __syscall_nr;
+    u32 entries;
+    struct io_uring_params * params;
+tracepoint:syscalls:sys_enter_io_uring_register
+    int __syscall_nr;
+    unsigned int fd;
+    unsigned int opcode;
+    void * arg;
+    unsigned int nr_args;
+tracepoint:syscalls:sys_enter_io_setup
+    int __syscall_nr;
+    unsigned nr_events;
+    aio_context_t * ctxp;
+tracepoint:syscalls:sys_enter_io_destroy
+    int __syscall_nr;
+    aio_context_t ctx;
+tracepoint:syscalls:sys_enter_io_submit
+    int __syscall_nr;
+    aio_context_t ctx_id;
+    long nr;
+    struct iocb * * iocbpp;
+tracepoint:syscalls:sys_enter_io_cancel
+    int __syscall_nr;
+    aio_context_t ctx_id;
+    struct iocb * iocb;
+    struct io_event * result;
+tracepoint:syscalls:sys_enter_io_getevents
+    int __syscall_nr;
+    aio_context_t ctx_id;
+    long min_nr;
+    long nr;
+    struct io_event * events;
+    struct __kernel_timespec * timeout;
+tracepoint:syscalls:sys_enter_io_pgetevents
+    int __syscall_nr;
+    aio_context_t ctx_id;
+    long min_nr;
+    long nr;
+    struct io_event * events;
+    struct __kernel_timespec * timeout;
+    const struct __aio_sigset * usig;
+tracepoint:syscalls:sys_enter_userfaultfd
+    int __syscall_nr;
+    int flags;
+tracepoint:syscalls:sys_enter_eventfd2
+    int __syscall_nr;
+    unsigned int count;
+    int flags;
+tracepoint:syscalls:sys_enter_eventfd
+    int __syscall_nr;
+    unsigned int count;
+tracepoint:syscalls:sys_enter_timerfd_create
+    int __syscall_nr;
+    int clockid;
+    int flags;
+tracepoint:syscalls:sys_enter_timerfd_settime
+    int __syscall_nr;
+    int ufd;
+    int flags;
+    const struct __kernel_itimerspec * utmr;
+    struct __kernel_itimerspec * otmr;
+tracepoint:syscalls:sys_enter_timerfd_gettime
+    int __syscall_nr;
+    int ufd;
+    struct __kernel_itimerspec * otmr;
+tracepoint:syscalls:sys_enter_signalfd4
+    int __syscall_nr;
+    int ufd;
+    sigset_t * user_mask;
+    size_t sizemask;
+    int flags;
+tracepoint:syscalls:sys_enter_signalfd
+    int __syscall_nr;
+    int ufd;
+    sigset_t * user_mask;
+    size_t sizemask;
+tracepoint:syscalls:sys_enter_epoll_create1
+    int __syscall_nr;
+    int flags;
+tracepoint:syscalls:sys_enter_epoll_create
+    int __syscall_nr;
+    int size;
+tracepoint:syscalls:sys_enter_epoll_ctl
+    int __syscall_nr;
+    int epfd;
+    int op;
+    int fd;
+    struct epoll_event * event;
+tracepoint:syscalls:sys_enter_epoll_wait
+    int __syscall_nr;
+    int epfd;
+    struct epoll_event * events;
+    int maxevents;
+    int timeout;
+tracepoint:syscalls:sys_enter_epoll_pwait
+    int __syscall_nr;
+    int epfd;
+    struct epoll_event * events;
+    int maxevents;
+    int timeout;
+    const sigset_t * sigmask;
+    size_t sigsetsize;
+tracepoint:syscalls:sys_enter_epoll_pwait2
+    int __syscall_nr;
+    int epfd;
+    struct epoll_event * events;
+    int maxevents;
+    const struct __kernel_timespec * timeout;
+    const sigset_t * sigmask;
+    size_t sigsetsize;
+tracepoint:syscalls:sys_enter_fanotify_init
+    int __syscall_nr;
+    unsigned int flags;
+    unsigned int event_f_flags;
+tracepoint:syscalls:sys_enter_fanotify_mark
+    int __syscall_nr;
+    int fanotify_fd;
+    unsigned int flags;
+    __u64 mask;
+    int dfd;
+    const char * pathname;
+tracepoint:syscalls:sys_enter_inotify_init1
+    int __syscall_nr;
+    int flags;
+tracepoint:syscalls:sys_enter_inotify_init
+    int __syscall_nr;
+tracepoint:syscalls:sys_enter_inotify_add_watch
+    int __syscall_nr;
+    int fd;
+    const char * pathname;
+    u32 mask;
+tracepoint:syscalls:sys_enter_inotify_rm_watch
+    int __syscall_nr;
+    int fd;
+    __s32 wd;
+tracepoint:syscalls:sys_enter_fsopen
+    int __syscall_nr;
+    const char * _fs_name;
+    unsigned int flags;
+tracepoint:syscalls:sys_enter_fspick
+    int __syscall_nr;
+    int dfd;
+    const char * path;
+    unsigned int flags;
+tracepoint:syscalls:sys_enter_fsconfig
+    int __syscall_nr;
+    int fd;
+    unsigned int cmd;
+    const char * _key;
+    const void * _value;
+    int aux;
+tracepoint:syscalls:sys_enter_statfs
+    int __syscall_nr;
+    const char * pathname;
+    struct statfs * buf;
+tracepoint:syscalls:sys_enter_fstatfs
+    int __syscall_nr;
+    unsigned int fd;
+    struct statfs * buf;
+tracepoint:syscalls:sys_enter_ustat
+    int __syscall_nr;
+    unsigned dev;
+    struct ustat * ubuf;
+tracepoint:syscalls:sys_enter_getcwd
+    int __syscall_nr;
+    char * buf;
+    unsigned long size;
+tracepoint:syscalls:sys_enter_utimensat
+    int __syscall_nr;
+    int dfd;
+    const char * filename;
+    struct __kernel_timespec * utimes;
+    int flags;
+tracepoint:syscalls:sys_enter_futimesat
+    int __syscall_nr;
+    int dfd;
+    const char * filename;
+    struct __kernel_old_timeval * utimes;
+tracepoint:syscalls:sys_enter_utimes
+    int __syscall_nr;
+    char * filename;
+    struct __kernel_old_timeval * utimes;
+tracepoint:syscalls:sys_enter_utime
+    int __syscall_nr;
+    char * filename;
+    struct utimbuf * times;
+tracepoint:syscalls:sys_enter_sync
+    int __syscall_nr;
+tracepoint:syscalls:sys_enter_syncfs
+    int __syscall_nr;
+    int fd;
+tracepoint:syscalls:sys_enter_fsync
+    int __syscall_nr;
+    unsigned int fd;
+tracepoint:syscalls:sys_enter_fdatasync
+    int __syscall_nr;
+    unsigned int fd;
+tracepoint:syscalls:sys_enter_sync_file_range
+    int __syscall_nr;
+    int fd;
+    loff_t offset;
+    loff_t nbytes;
+    unsigned int flags;
+tracepoint:syscalls:sys_enter_vmsplice
+    int __syscall_nr;
+    int fd;
+    const struct iovec * uiov;
+    unsigned long nr_segs;
+    unsigned int flags;
+tracepoint:syscalls:sys_enter_splice
+    int __syscall_nr;
+    int fd_in;
+    loff_t * off_in;
+    int fd_out;
+    loff_t * off_out;
+    size_t len;
+    unsigned int flags;
+tracepoint:syscalls:sys_enter_tee
+    int __syscall_nr;
+    int fdin;
+    int fdout;
+    size_t len;
+    unsigned int flags;
+tracepoint:syscalls:sys_enter_setxattr
+    int __syscall_nr;
+    const char * pathname;
+    const char * name;
+    const void * value;
+    size_t size;
+    int flags;
+tracepoint:syscalls:sys_enter_lsetxattr
+    int __syscall_nr;
+    const char * pathname;
+    const char * name;
+    const void * value;
+    size_t size;
+    int flags;
+tracepoint:syscalls:sys_enter_fsetxattr
+    int __syscall_nr;
+    int fd;
+    const char * name;
+    const void * value;
+    size_t size;
+    int flags;
+tracepoint:syscalls:sys_enter_getxattr
+    int __syscall_nr;
+    const char * pathname;
+    const char * name;
+    void * value;
+    size_t size;
+tracepoint:syscalls:sys_enter_lgetxattr
+    int __syscall_nr;
+    const char * pathname;
+    const char * name;
+    void * value;
+    size_t size;
+tracepoint:syscalls:sys_enter_fgetxattr
+    int __syscall_nr;
+    int fd;
+    const char * name;
+    void * value;
+    size_t size;
+tracepoint:syscalls:sys_enter_listxattr
+    int __syscall_nr;
+    const char * pathname;
+    char * list;
+    size_t size;
+tracepoint:syscalls:sys_enter_llistxattr
+    int __syscall_nr;
+    const char * pathname;
+    char * list;
+    size_t size;
+tracepoint:syscalls:sys_enter_flistxattr
+    int __syscall_nr;
+    int fd;
+    char * list;
+    size_t size;
+tracepoint:syscalls:sys_enter_removexattr
+    int __syscall_nr;
+    const char * pathname;
+    const char * name;
+tracepoint:syscalls:sys_enter_lremovexattr
+    int __syscall_nr;
+    const char * pathname;
+    const char * name;
+tracepoint:syscalls:sys_enter_fremovexattr
+    int __syscall_nr;
+    int fd;
+    const char * name;
+tracepoint:syscalls:sys_enter_umount
+    int __syscall_nr;
+    char * name;
+    int flags;
+tracepoint:syscalls:sys_enter_open_tree
+    int __syscall_nr;
+    int dfd;
+    const char * filename;
+    unsigned flags;
+tracepoint:syscalls:sys_enter_mount
+    int __syscall_nr;
+    char * dev_name;
+    char * dir_name;
+    char * type;
+    unsigned long flags;
+    void * data;
+tracepoint:syscalls:sys_enter_fsmount
+    int __syscall_nr;
+    int fs_fd;
+    unsigned int flags;
+    unsigned int attr_flags;
+tracepoint:syscalls:sys_enter_move_mount
+    int __syscall_nr;
+    int from_dfd;
+    const char * from_pathname;
+    int to_dfd;
+    const char * to_pathname;
+    unsigned int flags;
+tracepoint:syscalls:sys_enter_pivot_root
+    int __syscall_nr;
+    const char * new_root;
+    const char * put_old;
+tracepoint:syscalls:sys_enter_sysfs
+    int __syscall_nr;
+    int option;
+    unsigned long arg1;
+    unsigned long arg2;
+tracepoint:syscalls:sys_enter_dup3
+    int __syscall_nr;
+    unsigned int oldfd;
+    unsigned int newfd;
+    int flags;
+tracepoint:syscalls:sys_enter_dup2
+    int __syscall_nr;
+    unsigned int oldfd;
+    unsigned int newfd;
+tracepoint:syscalls:sys_enter_dup
+    int __syscall_nr;
+    unsigned int fildes;
+tracepoint:syscalls:sys_enter_select
+    int __syscall_nr;
+    int n;
+    fd_set * inp;
+    fd_set * outp;
+    fd_set * exp;
+    struct __kernel_old_timeval * tvp;
+tracepoint:syscalls:sys_enter_pselect6
+    int __syscall_nr;
+    int n;
+    fd_set * inp;
+    fd_set * outp;
+    fd_set * exp;
+    struct __kernel_timespec * tsp;
+    void * sig;
+tracepoint:syscalls:sys_enter_poll
+    int __syscall_nr;
+    struct pollfd * ufds;
+    unsigned int nfds;
+    int timeout_msecs;
+tracepoint:syscalls:sys_enter_ppoll
+    int __syscall_nr;
+    struct pollfd * ufds;
+    unsigned int nfds;
+    struct __kernel_timespec * tsp;
+    const sigset_t * sigmask;
+    size_t sigsetsize;
+tracepoint:syscalls:sys_enter_getdents
+    int __syscall_nr;
+    unsigned int fd;
+    struct linux_dirent * dirent;
+    unsigned int count;
+tracepoint:syscalls:sys_enter_getdents64
+    int __syscall_nr;
+    unsigned int fd;
+    struct linux_dirent64 * dirent;
+    unsigned int count;
+tracepoint:syscalls:sys_enter_ioctl
+    int __syscall_nr;
+    unsigned int fd;
+    unsigned int cmd;
+    unsigned long arg;
+tracepoint:syscalls:sys_enter_fcntl
+    int __syscall_nr;
+    unsigned int fd;
+    unsigned int cmd;
+    unsigned long arg;
+tracepoint:syscalls:sys_enter_mknodat
+    int __syscall_nr;
+    int dfd;
+    const char * filename;
+    umode_t mode;
+    unsigned int dev;
+tracepoint:syscalls:sys_enter_mknod
+    int __syscall_nr;
+    const char * filename;
+    umode_t mode;
+    unsigned dev;
+tracepoint:syscalls:sys_enter_mkdirat
+    int __syscall_nr;
+    int dfd;
+    const char * pathname;
+    umode_t mode;
+tracepoint:syscalls:sys_enter_mkdir
+    int __syscall_nr;
+    const char * pathname;
+    umode_t mode;
+tracepoint:syscalls:sys_enter_rmdir
+    int __syscall_nr;
+    const char * pathname;
+tracepoint:syscalls:sys_enter_unlinkat
+    int __syscall_nr;
+    int dfd;
+    const char * pathname;
+    int flag;
+tracepoint:syscalls:sys_enter_unlink
+    int __syscall_nr;
+    const char * pathname;
+tracepoint:syscalls:sys_enter_symlinkat
+    int __syscall_nr;
+    const char * oldname;
+    int newdfd;
+    const char * newname;
+tracepoint:syscalls:sys_enter_symlink
+    int __syscall_nr;
+    const char * oldname;
+    const char * newname;
+tracepoint:syscalls:sys_enter_linkat
+    int __syscall_nr;
+    int olddfd;
+    const char * oldname;
+    int newdfd;
+    const char * newname;
+    int flags;
+tracepoint:syscalls:sys_enter_link
+    int __syscall_nr;
+    const char * oldname;
+    const char * newname;
+tracepoint:syscalls:sys_enter_renameat2
+    int __syscall_nr;
+    int olddfd;
+    const char * oldname;
+    int newdfd;
+    const char * newname;
+    unsigned int flags;
+tracepoint:syscalls:sys_enter_renameat
+    int __syscall_nr;
+    int olddfd;
+    const char * oldname;
+    int newdfd;
+    const char * newname;
+tracepoint:syscalls:sys_enter_rename
+    int __syscall_nr;
+    const char * oldname;
+    const char * newname;
+tracepoint:syscalls:sys_enter_pipe2
+    int __syscall_nr;
+    int * fildes;
+    int flags;
+tracepoint:syscalls:sys_enter_pipe
+    int __syscall_nr;
+    int * fildes;
+tracepoint:syscalls:sys_enter_execve
+    int __syscall_nr;
+    const char * filename;
+    const char *const * argv;
+    const char *const * envp;
+tracepoint:syscalls:sys_enter_execveat
+    int __syscall_nr;
+    int fd;
+    const char * filename;
+    const char *const * argv;
+    const char *const * envp;
+    int flags;
+tracepoint:syscalls:sys_enter_newstat
+    int __syscall_nr;
+    const char * filename;
+    struct stat * statbuf;
+tracepoint:syscalls:sys_enter_newlstat
+    int __syscall_nr;
+    const char * filename;
+    struct stat * statbuf;
+tracepoint:syscalls:sys_enter_newfstatat
+    int __syscall_nr;
+    int dfd;
+    const char * filename;
+    struct stat * statbuf;
+    int flag;
+tracepoint:syscalls:sys_enter_newfstat
+    int __syscall_nr;
+    unsigned int fd;
+    struct stat * statbuf;
+tracepoint:syscalls:sys_enter_readlinkat
+    int __syscall_nr;
+    int dfd;
+    const char * pathname;
+    char * buf;
+    int bufsiz;
+tracepoint:syscalls:sys_enter_readlink
+    int __syscall_nr;
+    const char * path;
+    char * buf;
+    int bufsiz;
+tracepoint:syscalls:sys_enter_statx
+    int __syscall_nr;
+    int dfd;
+    const char * filename;
+    unsigned flags;
+    unsigned int mask;
+    struct statx * buffer;
+tracepoint:syscalls:sys_enter_lseek
+    int __syscall_nr;
+    unsigned int fd;
+    off_t offset;
+    unsigned int whence;
+tracepoint:syscalls:sys_enter_read
+    int __syscall_nr;
+    unsigned int fd;
+    char * buf;
+    size_t count;
+tracepoint:syscalls:sys_enter_write
+    int __syscall_nr;
+    unsigned int fd;
+    const char * buf;
+    size_t count;
+tracepoint:syscalls:sys_enter_pread64
+    int __syscall_nr;
+    unsigned int fd;
+    char * buf;
+    size_t count;
+    loff_t pos;
+tracepoint:syscalls:sys_enter_pwrite64
+    int __syscall_nr;
+    unsigned int fd;
+    const char * buf;
+    size_t count;
+    loff_t pos;
+tracepoint:syscalls:sys_enter_readv
+    int __syscall_nr;
+    unsigned long fd;
+    const struct iovec * vec;
+    unsigned long vlen;
+tracepoint:syscalls:sys_enter_writev
+    int __syscall_nr;
+    unsigned long fd;
+    const struct iovec * vec;
+    unsigned long vlen;
+tracepoint:syscalls:sys_enter_preadv
+    int __syscall_nr;
+    unsigned long fd;
+    const struct iovec * vec;
+    unsigned long vlen;
+    unsigned long pos_l;
+    unsigned long pos_h;
+tracepoint:syscalls:sys_enter_preadv2
+    int __syscall_nr;
+    unsigned long fd;
+    const struct iovec * vec;
+    unsigned long vlen;
+    unsigned long pos_l;
+    unsigned long pos_h;
+    rwf_t flags;
+tracepoint:syscalls:sys_enter_pwritev
+    int __syscall_nr;
+    unsigned long fd;
+    const struct iovec * vec;
+    unsigned long vlen;
+    unsigned long pos_l;
+    unsigned long pos_h;
+tracepoint:syscalls:sys_enter_pwritev2
+    int __syscall_nr;
+    unsigned long fd;
+    const struct iovec * vec;
+    unsigned long vlen;
+    unsigned long pos_l;
+    unsigned long pos_h;
+    rwf_t flags;
+tracepoint:syscalls:sys_enter_sendfile64
+    int __syscall_nr;
+    int out_fd;
+    int in_fd;
+    loff_t * offset;
+    size_t count;
+tracepoint:syscalls:sys_enter_copy_file_range
+    int __syscall_nr;
+    int fd_in;
+    loff_t * off_in;
+    int fd_out;
+    loff_t * off_out;
+    size_t len;
+    unsigned int flags;
+tracepoint:syscalls:sys_enter_truncate
+    int __syscall_nr;
+    const char * path;
+    long length;
+tracepoint:syscalls:sys_enter_ftruncate
+    int __syscall_nr;
+    unsigned int fd;
+    unsigned long length;
+tracepoint:syscalls:sys_enter_fallocate
+    int __syscall_nr;
+    int fd;
+    int mode;
+    loff_t offset;
+    loff_t len;
+tracepoint:syscalls:sys_enter_faccessat
+    int __syscall_nr;
+    int dfd;
+    const char * filename;
+    int mode;
+tracepoint:syscalls:sys_enter_faccessat2
+    int __syscall_nr;
+    int dfd;
+    const char * filename;
+    int mode;
+    int flags;
+tracepoint:syscalls:sys_enter_access
+    int __syscall_nr;
+    const char * filename;
+    int mode;
+tracepoint:syscalls:sys_enter_chdir
+    int __syscall_nr;
+    const char * filename;
+tracepoint:syscalls:sys_enter_fchdir
+    int __syscall_nr;
+    unsigned int fd;
+tracepoint:syscalls:sys_enter_chroot
+    int __syscall_nr;
+    const char * filename;
+tracepoint:syscalls:sys_enter_fchmod
+    int __syscall_nr;
+    unsigned int fd;
+    umode_t mode;
+tracepoint:syscalls:sys_enter_fchmodat
+    int __syscall_nr;
+    int dfd;
+    const char * filename;
+    umode_t mode;
+tracepoint:syscalls:sys_enter_chmod
+    int __syscall_nr;
+    const char * filename;
+    umode_t mode;
+tracepoint:syscalls:sys_enter_fchownat
+    int __syscall_nr;
+    int dfd;
+    const char * filename;
+    uid_t user;
+    gid_t group;
+    int flag;
+tracepoint:syscalls:sys_enter_chown
+    int __syscall_nr;
+    const char * filename;
+    uid_t user;
+    gid_t group;
+tracepoint:syscalls:sys_enter_lchown
+    int __syscall_nr;
+    const char * filename;
+    uid_t user;
+    gid_t group;
+tracepoint:syscalls:sys_enter_fchown
+    int __syscall_nr;
+    unsigned int fd;
+    uid_t user;
+    gid_t group;
+tracepoint:syscalls:sys_enter_open
+    int __syscall_nr;
+    const char * filename;
+    int flags;
+    umode_t mode;
+tracepoint:syscalls:sys_enter_openat
+    int __syscall_nr;
+    int dfd;
+    const char * filename;
+    int flags;
+    umode_t mode;
+tracepoint:syscalls:sys_enter_openat2
+    int __syscall_nr;
+    int dfd;
+    const char * filename;
+    struct open_how * how;
+    size_t usize;
+tracepoint:syscalls:sys_enter_creat
+    int __syscall_nr;
+    const char * pathname;
+    umode_t mode;
+tracepoint:syscalls:sys_enter_close
+    int __syscall_nr;
+    unsigned int fd;
+tracepoint:syscalls:sys_enter_close_range
+    int __syscall_nr;
+    unsigned int fd;
+    unsigned int max_fd;
+    unsigned int flags;
+tracepoint:syscalls:sys_enter_vhangup
+    int __syscall_nr;
+tracepoint:syscalls:sys_enter_memfd_create
+    int __syscall_nr;
+    const char * uname;
+    unsigned int flags;
+tracepoint:syscalls:sys_enter_move_pages
+    int __syscall_nr;
+    pid_t pid;
+    unsigned long nr_pages;
+    const void * * pages;
+    const int * nodes;
+    int * status;
+    int flags;
+tracepoint:syscalls:sys_enter_mbind
+    int __syscall_nr;
+    unsigned long start;
+    unsigned long len;
+    unsigned long mode;
+    const unsigned long * nmask;
+    unsigned long maxnode;
+    unsigned int flags;
+tracepoint:syscalls:sys_enter_set_mempolicy
+    int __syscall_nr;
+    int mode;
+    const unsigned long * nmask;
+    unsigned long maxnode;
+tracepoint:syscalls:sys_enter_migrate_pages
+    int __syscall_nr;
+    pid_t pid;
+    unsigned long maxnode;
+    const unsigned long * old_nodes;
+    const unsigned long * new_nodes;
+tracepoint:syscalls:sys_enter_get_mempolicy
+    int __syscall_nr;
+    int * policy;
+    unsigned long * nmask;
+    unsigned long maxnode;
+    unsigned long addr;
+    unsigned long flags;
+tracepoint:syscalls:sys_enter_swapoff
+    int __syscall_nr;
+    const char * specialfile;
+tracepoint:syscalls:sys_enter_swapon
+    int __syscall_nr;
+    const char * specialfile;
+    int swap_flags;
+tracepoint:syscalls:sys_enter_madvise
+    int __syscall_nr;
+    unsigned long start;
+    size_t len_in;
+    int behavior;
+tracepoint:syscalls:sys_enter_process_madvise
+    int __syscall_nr;
+    int pidfd;
+    const struct iovec * vec;
+    size_t vlen;
+    int behavior;
+    unsigned int flags;
+tracepoint:syscalls:sys_enter_process_vm_readv
+    int __syscall_nr;
+    pid_t pid;
+    const struct iovec * lvec;
+    unsigned long liovcnt;
+    const struct iovec * rvec;
+    unsigned long riovcnt;
+    unsigned long flags;
+tracepoint:syscalls:sys_enter_process_vm_writev
+    int __syscall_nr;
+    pid_t pid;
+    const struct iovec * lvec;
+    unsigned long liovcnt;
+    const struct iovec * rvec;
+    unsigned long riovcnt;
+    unsigned long flags;
+tracepoint:syscalls:sys_enter_msync
+    int __syscall_nr;
+    unsigned long start;
+    size_t len;
+    int flags;
+tracepoint:syscalls:sys_enter_mremap
+    int __syscall_nr;
+    unsigned long addr;
+    unsigned long old_len;
+    unsigned long new_len;
+    unsigned long flags;
+    unsigned long new_addr;
+tracepoint:syscalls:sys_enter_mprotect
+    int __syscall_nr;
+    unsigned long start;
+    size_t len;
+    unsigned long prot;
+tracepoint:syscalls:sys_enter_pkey_mprotect
+    int __syscall_nr;
+    unsigned long start;
+    size_t len;
+    unsigned long prot;
+    int pkey;
+tracepoint:syscalls:sys_enter_pkey_alloc
+    int __syscall_nr;
+    unsigned long flags;
+    unsigned long init_val;
+tracepoint:syscalls:sys_enter_pkey_free
+    int __syscall_nr;
+    int pkey;
+tracepoint:syscalls:sys_enter_brk
+    int __syscall_nr;
+    unsigned long brk;
+tracepoint:syscalls:sys_enter_munmap
+    int __syscall_nr;
+    unsigned long addr;
+    size_t len;
+tracepoint:syscalls:sys_enter_remap_file_pages
+    int __syscall_nr;
+    unsigned long start;
+    unsigned long size;
+    unsigned long prot;
+    unsigned long pgoff;
+    unsigned long flags;
+tracepoint:syscalls:sys_enter_mlock
+    int __syscall_nr;
+    unsigned long start;
+    size_t len;
+tracepoint:syscalls:sys_enter_mlock2
+    int __syscall_nr;
+    unsigned long start;
+    size_t len;
+    int flags;
+tracepoint:syscalls:sys_enter_munlock
+    int __syscall_nr;
+    unsigned long start;
+    size_t len;
+tracepoint:syscalls:sys_enter_mlockall
+    int __syscall_nr;
+    int flags;
+tracepoint:syscalls:sys_enter_munlockall
+    int __syscall_nr;
+tracepoint:syscalls:sys_enter_mincore
+    int __syscall_nr;
+    unsigned long start;
+    size_t len;
+    unsigned char * vec;
+tracepoint:syscalls:sys_enter_readahead
+    int __syscall_nr;
+    int fd;
+    loff_t offset;
+    size_t count;
+tracepoint:syscalls:sys_enter_fadvise64
+    int __syscall_nr;
+    int fd;
+    loff_t offset;
+    size_t len;
+    int advice;
+tracepoint:syscalls:sys_enter_rseq
+    int __syscall_nr;
+    struct rseq * rseq;
+    u32 rseq_len;
+    int flags;
+    u32 sig;
+tracepoint:syscalls:sys_enter_perf_event_open
+    int __syscall_nr;
+    struct perf_event_attr * attr_uptr;
+    pid_t pid;
+    int cpu;
+    int group_fd;
+    unsigned long flags;
+tracepoint:syscalls:sys_enter_bpf
+    int __syscall_nr;
+    int cmd;
+    union bpf_attr * uattr;
+    unsigned int size;
+tracepoint:syscalls:sys_enter_seccomp
+    int __syscall_nr;
+    unsigned int op;
+    unsigned int flags;
+    void * uargs;
+tracepoint:syscalls:sys_enter_kexec_file_load
+    int __syscall_nr;
+    int kernel_fd;
+    int initrd_fd;
+    unsigned long cmdline_len;
+    const char * cmdline_ptr;
+    unsigned long flags;
+tracepoint:syscalls:sys_enter_kexec_load
+    int __syscall_nr;
+    unsigned long entry;
+    unsigned long nr_segments;
+    struct kexec_segment * segments;
+    unsigned long flags;
+tracepoint:syscalls:sys_enter_acct
+    int __syscall_nr;
+    const char * name;
+tracepoint:syscalls:sys_enter_delete_module
+    int __syscall_nr;
+    const char * name_user;
+    unsigned int flags;
+tracepoint:syscalls:sys_enter_init_module
+    int __syscall_nr;
+    void * umod;
+    unsigned long len;
+    const char * uargs;
+tracepoint:syscalls:sys_enter_finit_module
+    int __syscall_nr;
+    int fd;
+    const char * uargs;
+    int flags;
+tracepoint:syscalls:sys_enter_set_robust_list
+    int __syscall_nr;
+    struct robust_list_head * head;
+    size_t len;
+tracepoint:syscalls:sys_enter_get_robust_list
+    int __syscall_nr;
+    int pid;
+    struct robust_list_head * * head_ptr;
+    size_t * len_ptr;
+tracepoint:syscalls:sys_enter_futex
+    int __syscall_nr;
+    u32 * uaddr;
+    int op;
+    u32 val;
+    struct __kernel_timespec * utime;
+    u32 * uaddr2;
+    u32 val3;
+tracepoint:syscalls:sys_enter_getitimer
+    int __syscall_nr;
+    int which;
+    struct __kernel_old_itimerval * value;
+tracepoint:syscalls:sys_enter_alarm
+    int __syscall_nr;
+    unsigned int seconds;
+tracepoint:syscalls:sys_enter_setitimer
+    int __syscall_nr;
+    int which;
+    struct __kernel_old_itimerval * value;
+    struct __kernel_old_itimerval * ovalue;
+tracepoint:syscalls:sys_enter_timer_create
+    int __syscall_nr;
+    const clockid_t which_clock;
+    struct sigevent * timer_event_spec;
+    timer_t * created_timer_id;
+tracepoint:syscalls:sys_enter_timer_gettime
+    int __syscall_nr;
+    timer_t timer_id;
+    struct __kernel_itimerspec * setting;
+tracepoint:syscalls:sys_enter_timer_getoverrun
+    int __syscall_nr;
+    timer_t timer_id;
+tracepoint:syscalls:sys_enter_timer_settime
+    int __syscall_nr;
+    timer_t timer_id;
+    int flags;
+    const struct __kernel_itimerspec * new_setting;
+    struct __kernel_itimerspec * old_setting;
+tracepoint:syscalls:sys_enter_timer_delete
+    int __syscall_nr;
+    timer_t timer_id;
+tracepoint:syscalls:sys_enter_clock_settime
+    int __syscall_nr;
+    const clockid_t which_clock;
+    const struct __kernel_timespec * tp;
+tracepoint:syscalls:sys_enter_clock_gettime
+    int __syscall_nr;
+    const clockid_t which_clock;
+    struct __kernel_timespec * tp;
+tracepoint:syscalls:sys_enter_clock_adjtime
+    int __syscall_nr;
+    const clockid_t which_clock;
+    struct __kernel_timex * utx;
+tracepoint:syscalls:sys_enter_clock_getres
+    int __syscall_nr;
+    const clockid_t which_clock;
+    struct __kernel_timespec * tp;
+tracepoint:syscalls:sys_enter_clock_nanosleep
+    int __syscall_nr;
+    const clockid_t which_clock;
+    int flags;
+    const struct __kernel_timespec * rqtp;
+    struct __kernel_timespec * rmtp;
+tracepoint:syscalls:sys_enter_nanosleep
+    int __syscall_nr;
+    struct __kernel_timespec * rqtp;
+    struct __kernel_timespec * rmtp;
+tracepoint:syscalls:sys_enter_time
+    int __syscall_nr;
+    __kernel_old_time_t * tloc;
+tracepoint:syscalls:sys_enter_gettimeofday
+    int __syscall_nr;
+    struct __kernel_old_timeval * tv;
+    struct timezone * tz;
+tracepoint:syscalls:sys_enter_settimeofday
+    int __syscall_nr;
+    struct __kernel_old_timeval * tv;
+    struct timezone * tz;
+tracepoint:syscalls:sys_enter_adjtimex
+    int __syscall_nr;
+    struct __kernel_timex * txc_p;
+tracepoint:syscalls:sys_enter_kcmp
+    int __syscall_nr;
+    pid_t pid1;
+    pid_t pid2;
+    int type;
+    unsigned long idx1;
+    unsigned long idx2;
+tracepoint:syscalls:sys_enter_syslog
+    int __syscall_nr;
+    int type;
+    char * buf;
+    int len;
+tracepoint:syscalls:sys_enter_membarrier
+    int __syscall_nr;
+    int cmd;
+    unsigned int flags;
+    int cpu_id;
+tracepoint:syscalls:sys_enter_sched_setscheduler
+    int __syscall_nr;
+    pid_t pid;
+    int policy;
+    struct sched_param * param;
+tracepoint:syscalls:sys_enter_sched_setparam
+    int __syscall_nr;
+    pid_t pid;
+    struct sched_param * param;
+tracepoint:syscalls:sys_enter_sched_setattr
+    int __syscall_nr;
+    pid_t pid;
+    struct sched_attr * uattr;
+    unsigned int flags;
+tracepoint:syscalls:sys_enter_sched_getscheduler
+    int __syscall_nr;
+    pid_t pid;
+tracepoint:syscalls:sys_enter_sched_getparam
+    int __syscall_nr;
+    pid_t pid;
+    struct sched_param * param;
+tracepoint:syscalls:sys_enter_sched_getattr
+    int __syscall_nr;
+    pid_t pid;
+    struct sched_attr * uattr;
+    unsigned int usize;
+    unsigned int flags;
+tracepoint:syscalls:sys_enter_sched_setaffinity
+    int __syscall_nr;
+    pid_t pid;
+    unsigned int len;
+    unsigned long * user_mask_ptr;
+tracepoint:syscalls:sys_enter_sched_getaffinity
+    int __syscall_nr;
+    pid_t pid;
+    unsigned int len;
+    unsigned long * user_mask_ptr;
+tracepoint:syscalls:sys_enter_sched_yield
+    int __syscall_nr;
+tracepoint:syscalls:sys_enter_sched_get_priority_max
+    int __syscall_nr;
+    int policy;
+tracepoint:syscalls:sys_enter_sched_get_priority_min
+    int __syscall_nr;
+    int policy;
+tracepoint:syscalls:sys_enter_sched_rr_get_interval
+    int __syscall_nr;
+    pid_t pid;
+    struct __kernel_timespec * interval;
+tracepoint:syscalls:sys_enter_getgroups
+    int __syscall_nr;
+    int gidsetsize;
+    gid_t * grouplist;
+tracepoint:syscalls:sys_enter_setgroups
+    int __syscall_nr;
+    int gidsetsize;
+    gid_t * grouplist;
+tracepoint:syscalls:sys_enter_reboot
+    int __syscall_nr;
+    int magic1;
+    int magic2;
+    unsigned int cmd;
+    void * arg;
+tracepoint:syscalls:sys_enter_setns
+    int __syscall_nr;
+    int fd;
+    int flags;
+tracepoint:syscalls:sys_enter_pidfd_open
+    int __syscall_nr;
+    pid_t pid;
+    unsigned int flags;
+tracepoint:syscalls:sys_enter_pidfd_getfd
+    int __syscall_nr;
+    int pidfd;
+    int fd;
+    unsigned int flags;
+tracepoint:syscalls:sys_enter_setpriority
+    int __syscall_nr;
+    int which;
+    int who;
+    int niceval;
+tracepoint:syscalls:sys_enter_getpriority
+    int __syscall_nr;
+    int which;
+    int who;
+tracepoint:syscalls:sys_enter_setregid
+    int __syscall_nr;
+    gid_t rgid;
+    gid_t egid;
+tracepoint:syscalls:sys_enter_setgid
+    int __syscall_nr;
+    gid_t gid;
+tracepoint:syscalls:sys_enter_setreuid
+    int __syscall_nr;
+    uid_t ruid;
+    uid_t euid;
+tracepoint:syscalls:sys_enter_setuid
+    int __syscall_nr;
+    uid_t uid;
+tracepoint:syscalls:sys_enter_setresuid
+    int __syscall_nr;
+    uid_t ruid;
+    uid_t euid;
+    uid_t suid;
+tracepoint:syscalls:sys_enter_getresuid
+    int __syscall_nr;
+    uid_t * ruidp;
+    uid_t * euidp;
+    uid_t * suidp;
+tracepoint:syscalls:sys_enter_setresgid
+    int __syscall_nr;
+    gid_t rgid;
+    gid_t egid;
+    gid_t sgid;
+tracepoint:syscalls:sys_enter_getresgid
+    int __syscall_nr;
+    gid_t * rgidp;
+    gid_t * egidp;
+    gid_t * sgidp;
+tracepoint:syscalls:sys_enter_setfsuid
+    int __syscall_nr;
+    uid_t uid;
+tracepoint:syscalls:sys_enter_setfsgid
+    int __syscall_nr;
+    gid_t gid;
+tracepoint:syscalls:sys_enter_getpid
+    int __syscall_nr;
+tracepoint:syscalls:sys_enter_gettid
+    int __syscall_nr;
+tracepoint:syscalls:sys_enter_getppid
+    int __syscall_nr;
+tracepoint:syscalls:sys_enter_getuid
+    int __syscall_nr;
+tracepoint:syscalls:sys_enter_geteuid
+    int __syscall_nr;
+tracepoint:syscalls:sys_enter_getgid
+    int __syscall_nr;
+tracepoint:syscalls:sys_enter_getegid
+    int __syscall_nr;
+tracepoint:syscalls:sys_enter_times
+    int __syscall_nr;
+    struct tms * tbuf;
+tracepoint:syscalls:sys_enter_setpgid
+    int __syscall_nr;
+    pid_t pid;
+    pid_t pgid;
+tracepoint:syscalls:sys_enter_getpgid
+    int __syscall_nr;
+    pid_t pid;
+tracepoint:syscalls:sys_enter_getpgrp
+    int __syscall_nr;
+tracepoint:syscalls:sys_enter_getsid
+    int __syscall_nr;
+    pid_t pid;
+tracepoint:syscalls:sys_enter_setsid
+    int __syscall_nr;
+tracepoint:syscalls:sys_enter_newuname
+    int __syscall_nr;
+    struct new_utsname * name;
+tracepoint:syscalls:sys_enter_sethostname
+    int __syscall_nr;
+    char * name;
+    int len;
+tracepoint:syscalls:sys_enter_setdomainname
+    int __syscall_nr;
+    char * name;
+    int len;
+tracepoint:syscalls:sys_enter_getrlimit
+    int __syscall_nr;
+    unsigned int resource;
+    struct rlimit * rlim;
+tracepoint:syscalls:sys_enter_prlimit64
+    int __syscall_nr;
+    pid_t pid;
+    unsigned int resource;
+    const struct rlimit64 * new_rlim;
+    struct rlimit64 * old_rlim;
+tracepoint:syscalls:sys_enter_setrlimit
+    int __syscall_nr;
+    unsigned int resource;
+    struct rlimit * rlim;
+tracepoint:syscalls:sys_enter_getrusage
+    int __syscall_nr;
+    int who;
+    struct rusage * ru;
+tracepoint:syscalls:sys_enter_umask
+    int __syscall_nr;
+    int mask;
+tracepoint:syscalls:sys_enter_prctl
+    int __syscall_nr;
+    int option;
+    unsigned long arg2;
+    unsigned long arg3;
+    unsigned long arg4;
+    unsigned long arg5;
+tracepoint:syscalls:sys_enter_getcpu
+    int __syscall_nr;
+    unsigned * cpup;
+    unsigned * nodep;
+    struct getcpu_cache * unused;
+tracepoint:syscalls:sys_enter_sysinfo
+    int __syscall_nr;
+    struct sysinfo * info;
+tracepoint:syscalls:sys_enter_restart_syscall
+    int __syscall_nr;
+tracepoint:syscalls:sys_enter_rt_sigprocmask
+    int __syscall_nr;
+    int how;
+    sigset_t * nset;
+    sigset_t * oset;
+    size_t sigsetsize;
+tracepoint:syscalls:sys_enter_rt_sigpending
+    int __syscall_nr;
+    sigset_t * uset;
+    size_t sigsetsize;
+tracepoint:syscalls:sys_enter_rt_sigtimedwait
+    int __syscall_nr;
+    const sigset_t * uthese;
+    siginfo_t * uinfo;
+    const struct __kernel_timespec * uts;
+    size_t sigsetsize;
+tracepoint:syscalls:sys_enter_kill
+    int __syscall_nr;
+    pid_t pid;
+    int sig;
+tracepoint:syscalls:sys_enter_pidfd_send_signal
+    int __syscall_nr;
+    int pidfd;
+    int sig;
+    siginfo_t * info;
+    unsigned int flags;
+tracepoint:syscalls:sys_enter_tgkill
+    int __syscall_nr;
+    pid_t tgid;
+    pid_t pid;
+    int sig;
+tracepoint:syscalls:sys_enter_tkill
+    int __syscall_nr;
+    pid_t pid;
+    int sig;
+tracepoint:syscalls:sys_enter_rt_sigqueueinfo
+    int __syscall_nr;
+    pid_t pid;
+    int sig;
+    siginfo_t * uinfo;
+tracepoint:syscalls:sys_enter_rt_tgsigqueueinfo
+    int __syscall_nr;
+    pid_t tgid;
+    pid_t pid;
+    int sig;
+    siginfo_t * uinfo;
+tracepoint:syscalls:sys_enter_sigaltstack
+    int __syscall_nr;
+    const stack_t * uss;
+    stack_t * uoss;
+tracepoint:syscalls:sys_enter_rt_sigaction
+    int __syscall_nr;
+    int sig;
+    const struct sigaction * act;
+    struct sigaction * oact;
+    size_t sigsetsize;
+tracepoint:syscalls:sys_enter_pause
+    int __syscall_nr;
+tracepoint:syscalls:sys_enter_rt_sigsuspend
+    int __syscall_nr;
+    sigset_t * unewset;
+    size_t sigsetsize;
+tracepoint:syscalls:sys_enter_ptrace
+    int __syscall_nr;
+    long request;
+    long pid;
+    unsigned long addr;
+    unsigned long data;
+tracepoint:syscalls:sys_enter_capget
+    int __syscall_nr;
+    cap_user_header_t header;
+    cap_user_data_t dataptr;
+tracepoint:syscalls:sys_enter_capset
+    int __syscall_nr;
+    cap_user_header_t header;
+    const cap_user_data_t data;
+tracepoint:syscalls:sys_enter_exit
+    int __syscall_nr;
+    int error_code;
+tracepoint:syscalls:sys_enter_exit_group
+    int __syscall_nr;
+    int error_code;
+tracepoint:syscalls:sys_enter_waitid
+    int __syscall_nr;
+    int which;
+    pid_t upid;
+    struct siginfo * infop;
+    int options;
+    struct rusage * ru;
+tracepoint:syscalls:sys_enter_wait4
+    int __syscall_nr;
+    pid_t upid;
+    int * stat_addr;
+    int options;
+    struct rusage * ru;
+tracepoint:syscalls:sys_enter_personality
+    int __syscall_nr;
+    unsigned int personality;
+tracepoint:syscalls:sys_enter_set_tid_address
+    int __syscall_nr;
+    int * tidptr;
+tracepoint:syscalls:sys_enter_fork
+    int __syscall_nr;
+tracepoint:syscalls:sys_enter_vfork
+    int __syscall_nr;
+tracepoint:syscalls:sys_enter_clone
+    int __syscall_nr;
+    unsigned long clone_flags;
+    unsigned long newsp;
+    int * parent_tidptr;
+    int * child_tidptr;
+    unsigned long tls;
+tracepoint:syscalls:sys_enter_clone3
+    int __syscall_nr;
+    struct clone_args * uargs;
+    size_t size;
+tracepoint:syscalls:sys_enter_unshare
+    int __syscall_nr;
+    unsigned long unshare_flags;
+tracepoint:syscalls:sys_enter_mmap
+    int __syscall_nr;
+    unsigned long addr;
+    unsigned long len;
+    unsigned long prot;
+    unsigned long flags;
+    unsigned long fd;
+    unsigned long off;
+tracepoint:syscalls:sys_enter_modify_ldt
+    int __syscall_nr;
+    int func;
+    void * ptr;
+    unsigned long bytecount;
+tracepoint:syscalls:sys_enter_ioperm
+    int __syscall_nr;
+    unsigned long from;
+    unsigned long num;
+    int turn_on;
+tracepoint:syscalls:sys_enter_iopl
+    int __syscall_nr;
+    unsigned int level;
+tracepoint:syscalls:sys_enter_rt_sigreturn
+    int __syscall_nr;
+tracepoint:syscalls:sys_enter_arch_prctl
+    int __syscall_nr;
+    int option;
+    unsigned long arg2;
